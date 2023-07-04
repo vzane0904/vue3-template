@@ -13,7 +13,7 @@ declare interface ViteEnv {
   VITE_APP_PREFIXCLS: string
   VITE_APP_MOCK: boolean
   VITE_APP_ANALYSIS: boolean
-  VITE_APP_PROD_MOCK: boolean
+  VITE_APP_AUTO_IMPORT: boolean
 }
 interface ImportMetaEnv extends ViteEnv {}
 declare global {

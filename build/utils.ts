@@ -1,15 +1,14 @@
-import { type Record } from '../src/type'
 const booleanStr = ['true', 'false']
-const convertBoolean = (value: string): Boolean => value === booleanStr[0]
+const transBoolean = (value: string): Boolean => value === booleanStr[0]
 const transNum = (value: string): Number => Number(value)
-export const wrapperEnv = (envConf: Record<any>): ViteEnv => {
+export const wrapperEnv = (envConf: Record<string, any>): ViteEnv => {
   const env: any = {}
   for (const envName of Object.keys(envConf)) {
     if (envName === 'VITE_APP_PORT') {
       env[envName] = transNum(envConf[envName])
     } else if (envName === 'VITE_APP_SOURCEMAP') {
       if (booleanStr.includes(envConf[envName])) {
-        env[envName] = convertBoolean(envConf[envName])
+        env[envName] = transBoolean(envConf[envName])
       } else {
         env[envName] = envConf[envName]
       }
@@ -19,10 +18,11 @@ export const wrapperEnv = (envConf: Record<any>): ViteEnv => {
         'VITE_APP_LOG',
         'VITE_APP_OPEN',
         'VITE_APP_MOCK',
-        'VITE_APP_ANALYSIS'
+        'VITE_APP_ANALYSIS',
+        'VITE_APP_AUTO_IMPORT'
       ].includes(envName)
     ) {
-      env[envName] = convertBoolean(envConf[envName])
+      env[envName] = transBoolean(envConf[envName])
     } else if (envName === 'VITE_APP_PROXY') {
       env[envName] = JSON.parse(envConf[envName].replace(/"/g, '"'))
     } else {

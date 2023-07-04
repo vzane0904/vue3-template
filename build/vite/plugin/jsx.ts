@@ -1,2 +1,4 @@
 import vueJsx from '@vitejs/plugin-vue-jsx'
-export const jsx = () => vueJsx({})
+export const jsx = () => {
+  return vueJsx({})
+}

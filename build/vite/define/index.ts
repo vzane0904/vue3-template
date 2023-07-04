@@ -1,11 +1,14 @@
 import pkg from '../../../package.json'
-const { dependencies, devDependencies, name, version } = pkg
-export const APP_INFO = {
+const { name, version } = pkg
+const APP_INFO = {
   pkg: {
-    dependencies,
-    devDependencies,
     name,
     version
   },
   lastBuildTime: Number(new Date())
+}
+export const define = (): Record<string, any> => {
+  return {
+    __APP_INFO__: JSON.stringify(APP_INFO)
+  }
 }

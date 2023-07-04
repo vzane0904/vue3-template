@@ -1,12 +1,16 @@
-import type { Alias } from 'vite'
-import { aliasList } from './alias'
-export const createAlias = (path: string) => {
-  const alias: Array<Alias> = []
-  for (const item of aliasList) {
-    alias.push({
-      find: item[0],
-      replacement: path + item[1]
-    })
+import type { AliasOptions, ResolveOptions } from 'vite'
+import { createAlias } from './alias'
+export * from './extensions'
+import { fileURLToPath, URL } from 'node:url'
+import { extensions } from './extensions'
+
+type Resolve = ResolveOptions & {
+  alias?: AliasOptions
+}
+
+export const resolve = (): Resolve => {
+  return {
+    alias: createAlias(fileURLToPath(new URL('../../../', import.meta.url))),
+    extensions
   }
-  return alias
 }

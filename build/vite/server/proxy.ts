@@ -6,6 +6,7 @@ const isHttps = (target: string) => /^https:\/\//.test(target)
 
 export const createProxy = (list: ProxyList) => {
   const proxyList: ProxyTargetItem = {}
+
   for (const [prefix, target] of list) {
     proxyList[prefix] = {
       target: target,

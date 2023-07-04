@@ -21,8 +21,8 @@ export function viteBuildInfo(): Plugin {
         bold(
           green(
             `👏欢迎使用${blue(
-              '[vue3-template]'
-            )}，如果您感觉不错，记得点击后面链接给个star哦💖 https://github.com/vzane0904/vue3-template`
+              '[v-naive-admin]'
+            )},如果您感觉不错,记得点击后面链接给个star哦💖 https://github.com/vzane0904/v-naive-admin`
           )
         )
       )
@@ -41,7 +41,7 @@ export function viteBuildInfo(): Plugin {
                 green(
                   `🎉恭喜打包完成（总用时${dayjs
                     .duration(endTime.diff(startTime))
-                    .format('mm分ss秒')}，打包后的大小为${size}）`
+                    .format('mm分ss秒')},打包后的大小为${size}）`
                 )
               )
             )
