@@ -10,7 +10,7 @@
         <p class="flex items-center m-0 text-white text-size-24px">
           <!-- text-[50px] -->
           <SvgIcon :size="50" name="logo-icon" class="relative top-6px mr-[20px]" />
-          <b class="mt-[10px]">开箱即用的中后台管理系统</b>
+          <b class="mt-[10px]">Vue3 模板 </b>
         </p>
         <div class="text-white mt-10px">当前版本：{{ pkg.version }}</div>
       </div>
