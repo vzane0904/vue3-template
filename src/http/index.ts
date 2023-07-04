@@ -1,4 +1,9 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, {
+  AxiosError,
+  type AxiosInstance,
+  type AxiosRequestConfig,
+  type AxiosResponse
+} from 'axios'
 
 export class VAxios {
   private AxiosInstance: AxiosInstance
@@ -14,7 +19,7 @@ export class VAxios {
   //   请求拦截器
   private initRequestInterceptors() {
     this.AxiosInstance.interceptors.request.use(
-      async (request: AxiosRequestConfig) => request,
+      async request => request,
       async (error: AxiosError) => Promise.reject(error)
     )
   }
@@ -28,7 +33,7 @@ export class VAxios {
   /**
    * @description 请求主体
    **/
-  require<T = any>(config): Promise<T> {
+  require<T = any>(config: AxiosRequestConfig<any>): Promise<T> {
     return this.AxiosInstance.request({
       ...config
     })

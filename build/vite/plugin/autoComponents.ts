@@ -1,9 +1,9 @@
 import Components from 'unplugin-vue-components/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+// import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import { autoPath } from '.'
 export const componentTS = () => {
   return Components({
-    resolvers: [NaiveUiResolver()],
+    resolvers: [],
     directoryAsNamespace: true,
     extensions: ['vue'],
     dts: autoPath + '/components.d.ts',
